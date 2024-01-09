@@ -1,0 +1,11 @@
+using namespace std;
+string bankaccpw;
+int bmenu;
+int acchoice;
+int account_ops;
+int acc1balance=100000;
+int acc2balance=120000;
+int acc3balance=99000;
+float acc1wallet=1000;
+float acc2wallet=1200;
+float acc3wallet=900;
