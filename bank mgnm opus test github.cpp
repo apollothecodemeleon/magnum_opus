@@ -1,6 +1,6 @@
 #include <iostream>
-#include<chrono>
-#include<thread>
+#include <chrono>
+#include <thread>
 #include <stdlib.h>
 using namespace std;
 
@@ -41,10 +41,13 @@ int main() {
 )";                     
   cout << "\033[2J\033[0;0H";
  
+  cout << "Press Any Key To Continue!"
 
+  cout << "\033[2J\033[0;0H";
 
   
   this_thread::sleep_for(chrono::seconds(2));
+
   cout<<wlcmssg;
   cout << "\n\t\t please choose an option";
   cout << "\n1) log in";
@@ -60,12 +63,12 @@ int main() {
     signinmenu:
     cout << "\033[2J\033[0;0H";
     
-    cout<<"\n\t\tselect the account you want to sign in to(note: the accounts are universal across al my projects:)"; 
+    cout<<"\n\t\t(note: the money you have is universal across al my projects:)"; 
     //alright, so this is gonna get complicated. there is a switch function IN this switch function💀😳🤯🪆its called nesting btw
   
     
 
-    cout<<"\n\n\n\t\t\t\t[0] Go Back";
+     cout<<"\n\n\n\t\t\t\t[0] Go Back";
      acc1si:
      cout << "\033[2J\033[0;0H";
         
@@ -81,9 +84,9 @@ int main() {
         cout<<"\n\n1)deposit";
         cout<<"\n2)withdraw";
         cout<<"\n3)calculator";
-        cout<<"\n4)sort words";
-        cout<<"\n\n\n\t\t\t\t[0] Go Back";
-        cout<<"\t\t[1-3]Select Choice";
+        cout<<"\n4)dashboard";
+        cout<<"\n\n\n\t\t\t\t[0] Log Out";
+        cout<<"\t\t[1-4]Select Choice";
         
         cin>>account_ops; 
 
@@ -91,9 +94,13 @@ int main() {
         switch(account_ops){
           
           case 0:
+          /*Log Out
+          Section*/
           goto acc1mnu;
           break;
-          
+          /*deposit
+          section*/
+          //in case you wonder why this has so many incorrectly named markers and stuff, that is because the code originally had multiple accounts
           case 1:
           cout << "\033[2J\033[0;0H";
             
@@ -106,15 +113,47 @@ int main() {
           cin>>depositOrWithdrawAmount;
           walletchange=acc1wallet-depositOrWithdrawAmount;
           acc1wallet=walletchange;
+          acc1balancechange=acc1balance+depositOrWithdrawAmount;
           
-          balancechange = acc1balance+depositOrWithdrawAmount;
+
+          goto acc1mnu;
+
+          break;
+          /*Withdrawal
+          Section*/
+          case 2:
+
+          cout << "\033[2J\033[0;0H";
+
+          cout<<"\nhow much money would you like to withdraw";
+          cout<<"\ninfo:";
+          cout<<"\nBalance= $"<<acc1balance;
+          cout<<"\nMoney in wallet= $"<<acc1wallet;
+
+          cin>>depositOrWithdrawAmount;
+          balancechange = acc1balance-depositOrWithdrawAmount;
           acc1balance = balancechange;
           
+          goto acc1mnu;
+
+          break;
+          /*Calculator
+          Section*/
+          case 3:
+
+          /*To Do With Final Assembly: Add
+          Calculator!!!!*/
           
-          
-          
-          
-          
+          break;//will add goto and cin for back at the end of the calculator part
+          /*Dashboard
+          Section*/
+          case 4:
+
+          cout<<"\nYour Dashboard!"
+
+          cout<<"\nur balance:$"<<acc1balance<<;
+          cout<<"\nur last accounting transaction:$"<<depositOrWithdrawAmount;
+
         }
         
       }else if(bankPassword=="0"){
