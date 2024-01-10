@@ -5,23 +5,20 @@
 using namespace std;
 
 
-string bankacpw;//calling the variable for the password that you enter
-int bmenu;//calling the variable to choose the thing on the menu
-int acchoice;//calling the variable to choose the account
+string bankPassword;//calling the variable for the password that you enter
+int bankMenu;//calling the variable to choose the thing on the menu
+int accountChoice;//calling the variable to choose the account
 int account_ops;//calling the variable for the choice
 float acc1balance=100000;
-float acc2balance=120000;
-float acc3balance=99000;
 float acc1wallet=1000;
-float acc2wallet=1200;
-float acc3wallet=900;
+
 
 
 
 
 int main() {
 
-  float dep_or_with_amnt;
+  float depositOrWithdrawAmount;
   float walletchange;
   float balancechange;
  
@@ -56,9 +53,9 @@ int main() {
   cout << "\n\n\n\t\t\t\t[0] Go Back";
   cout << "\t\t[1-2] Select Choice";
   cout << "\t\t[tip] You should go to account help first to know the password.\n";
-  cin>>bmenu;
+  cin>>bankMenu;
 
-  switch (bmenu){ 
+  switch (bankMenu){ 
   case 1:
     signinmenu:
     cout << "\033[2J\033[0;0H";
@@ -66,22 +63,16 @@ int main() {
     cout<<"\n\t\tselect the account you want to sign in to(note: the accounts are universal across al my projects:)"; 
     //alright, so this is gonna get complicated. there is a switch function IN this switch function💀😳🤯🪆its called nesting btw
   
-    cout<<"\n1)account1";
-    cout<<"\n2)account2";
-    cout<<"\n3)account3";
-    cout<<"\n4)admin_acc";
-    cout<<"\n\n\n\t\t\t\t[0] Go Back";
-    cout<<"\t\t[1-4] Select Account\n";
-    cin>>acchoice;
-    switch (acchoice){
-      case 1:
-      acc1si:
-      cout << "\033[2J\033[0;0H";
-        
-      cout << "enter password(enter 0 to go back)\n";
-      cin>>bankacpw;
+    
 
-      if (bankacpw=="apollo"){
+    cout<<"\n\n\n\t\t\t\t[0] Go Back";
+     acc1si:
+     cout << "\033[2J\033[0;0H";
+        
+     cout << "enter password(enter 0 to go back)\n";
+     cin>>bankPassword;
+
+      if (bankPassword=="apollo"){
         acc1mnu:
         cout << "\033[2J\033[0;0H";
         
@@ -112,11 +103,11 @@ int main() {
           cout<<"\nMoney in wallet= $"<<acc1wallet;
 
 
-          cin>>dep_or_with_amnt;
-          walletchange=acc1wallet-dep_or_with_amnt;
+          cin>>depositOrWithdrawAmount;
+          walletchange=acc1wallet-depositOrWithdrawAmount;
           acc1wallet=walletchange;
           
-          balancechange = acc1balance+dep_or_with_amnt;
+          balancechange = acc1balance+depositOrWithdrawAmount;
           acc1balance = balancechange;
           
           
@@ -126,24 +117,13 @@ int main() {
           
         }
         
-      }else if(bankacpw=="0"){
+      }else if(bankPassword=="0"){
         goto signinmenu;
       }else{
         goto acc1si;
       }
       
       break;
-      
-      case 2:
-      cout << "\033[2J\033[0;0H";
-      cout<<"enter the password for account two";
-      cin >>bankacpw;
-
-      if(bankacpw=="the"){
-        
-      }else{
-        cout<<"1nc0rr3c7";
-      }
 
       break;
 
