@@ -11,6 +11,7 @@ int accountChoice;//calling the variable to choose the account
 int account_ops;//calling the variable for the choice
 float acc1balance=100000;
 float acc1wallet=1000;
+int acc1money = acc1balance + acc1wallet;
 
 
 
@@ -91,69 +92,78 @@ int main() {
         cin>>account_ops; 
 
 
-        switch(account_ops){
-          
-          case 0:
-          /*Log Out
-          Section*/
-          goto acc1mnu;
-          break;
-          /*deposit
-          section*/
-          //in case you wonder why this has so many incorrectly named markers and stuff, that is because the code originally had multiple accounts
-          case 1:
-          cout << "\033[2J\033[0;0H";
-            
-          cout<<"\nhow much mone would you like to deposit";
-          cout<<"\ninfo:";
-          cout<<"\nBalance= $"<<acc1balance;
-          cout<<"\nMoney in wallet= $"<<acc1wallet;
+        switch (account_ops) {
+
+        case 0:
+            /*Log Out
+            Section*/
+            goto acc1mnu;
+            break;
+            /*deposit
+            section*/
+            //in case you wonder why this has so many incorrectly named markers and stuff, that is because the code originally had multiple accounts
+        case 1:
+            cout << "\033[2J\033[0;0H";
+
+            cout << "\nhow much mone would you like to deposit";
+            cout << "\ninfo:";
+            cout << "\nBalance= $" << acc1balance;
+            cout << "\nMoney in wallet= $" << acc1wallet;
 
 
-          cin>>depositOrWithdrawAmount;
-          walletchange=acc1wallet-depositOrWithdrawAmount;
-          acc1wallet=walletchange;
-          acc1balancechange=acc1balance+depositOrWithdrawAmount;
-          
+            cin >> depositOrWithdrawAmount;
+            walletchange = acc1wallet - depositOrWithdrawAmount;
+            acc1wallet = walletchange;
+            balancechange = acc1balance + depositOrWithdrawAmount;
+            acc1balance = balancechange;
 
-          goto acc1mnu;
 
-          break;
-          /*Withdrawal
-          Section*/
-          case 2:
+            goto acc1mnu;
 
-          cout << "\033[2J\033[0;0H";
+            break;
+            /*Withdrawal
+            Section*/
+        case 2:
 
-          cout<<"\nhow much money would you like to withdraw";
-          cout<<"\ninfo:";
-          cout<<"\nBalance= $"<<acc1balance;
-          cout<<"\nMoney in wallet= $"<<acc1wallet;
+            cout << "\033[2J\033[0;0H";
 
-          cin>>depositOrWithdrawAmount;
-          balancechange = acc1balance-depositOrWithdrawAmount;
-          acc1balance = balancechange;
-          
-          goto acc1mnu;
+            cout << "\nhow much money would you like to withdraw";
+            cout << "\ninfo:";
+            cout << "\nBalance= $" << acc1balance;
+            cout << "\nMoney in wallet= $" << acc1wallet;
 
-          break;
-          /*Calculator
-          Section*/
-          case 3:
+            cin >> depositOrWithdrawAmount;
+            balancechange = acc1balance - depositOrWithdrawAmount;
+            acc1balance = balancechange;
 
-          /*To Do With Final Assembly: Add
-          Calculator!!!!*/
-          
-          break;//will add goto and cin for back at the end of the calculator part
-          /*Dashboard
-          Section*/
-          case 4:
+            goto acc1mnu;
 
-          cout<<"\nYour Dashboard!"
+            break;
+            /*Calculator
+            Section*/
+        case 3:
 
-          cout<<"\nur balance:$"<<acc1balance<<;
-          cout<<"\nur last accounting transaction:$"<<depositOrWithdrawAmount;
+            /*To Do With Final Assembly: Add
+            Calculator!!!!*/
 
+            break;//will add goto and cin for back at the end of the calculator part
+            /*Dashboard
+            Section*/
+        case 4:
+
+            cout << "\nYour Dashboard!"
+
+                cout << "\nur balance:$" << acc1balance << ;
+            cout << "\nur latest accounting transaction:$" << depositOrWithdrawAmount;
+            cout << "\nur wallet:$" << acc1wallet;
+            cout << "\nur total money" << acc1money;
+            cout << "\nur chance of having a pet:75%";
+
+            cout << "\n\n\n\t\t\t\t[Any Key] Go Back";
+
+            getchar();
+
+            goto acc1mnu;
         }
         
       }else if(bankPassword=="0"){
