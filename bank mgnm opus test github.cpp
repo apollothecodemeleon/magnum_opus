@@ -43,6 +43,8 @@ int main() {
   cout << "\033[2J\033[0;0H";
 
   cout << "Press Any Key To Continue!";
+  getchar;
+  
   bankmenu:
   cout << "\033[2J\033[0;0H";
 
