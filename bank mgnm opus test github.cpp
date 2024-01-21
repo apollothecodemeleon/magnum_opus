@@ -22,7 +22,7 @@ int main() {
   float depositOrWithdrawAmount;
   float walletchange;
   float balancechange;
- 
+
 
   string wlcmssg = R"(
    __      __          ___                                        
@@ -41,12 +41,14 @@ int main() {
                                                                                                                               ──▀▀█▄▄▄▄▄█▀▀──
 )";                     
   cout << "\033[2J\033[0;0H";
- 
-  cout << "Press Any Key To Continue!"
 
+  cout << "Press Any Key To Continue!";
+  getchar;
+  
+  bankmenu:
   cout << "\033[2J\033[0;0H";
 
-  
+
   this_thread::sleep_for(chrono::seconds(2));
 
   cout<<wlcmssg;
@@ -63,24 +65,24 @@ int main() {
   case 1:
     signinmenu:
     cout << "\033[2J\033[0;0H";
-    
+
     cout<<"\n\t\t(note: the money you have is universal across al my projects:)"; 
     //alright, so this is gonna get complicated. there is a switch function IN this switch function💀😳🤯🪆its called nesting btw
-  
-    
+
+
 
      cout<<"\n\n\n\t\t\t\t[0] Go Back";
      acc1si:
      cout << "\033[2J\033[0;0H";
-        
+
      cout << "enter password(enter 0 to go back)\n";
      cin>>bankPassword;
 
       if (bankPassword=="apollo"){
         acc1mnu:
         cout << "\033[2J\033[0;0H";
-        
-        
+
+
         cout<<"\n\t\tWelcome, account1!\n what would you like to do?";
         cout<<"\n\n1)deposit";
         cout<<"\n2)withdraw";
@@ -88,7 +90,7 @@ int main() {
         cout<<"\n4)dashboard";
         cout<<"\n\n\n\t\t\t\t[0] Log Out";
         cout<<"\t\t[1-4]Select Choice";
-        
+
         cin>>account_ops; 
 
 
@@ -151,35 +153,37 @@ int main() {
             Section*/
         case 4:
 
-            cout << "\nYour Dashboard!"
+            cout << "\nYour Dashboard!";
+            cout << "\nWarning: this page will close in 15 seconds";
 
-                cout << "\nur balance:$" << acc1balance << ;
+            cout << "\nur balance:$" << acc1balance;
             cout << "\nur latest accounting transaction:$" << depositOrWithdrawAmount;
             cout << "\nur wallet:$" << acc1wallet;
             cout << "\nur total money" << acc1money;
             cout << "\nur chance of having a pet:75%";
 
-            cout << "\n\n\n\t\t\t\t[Any Key] Go Back";
+            this_thread::sleep_for(chrono::seconds(15));
 
-            getchar();
 
+        
             goto acc1mnu;
         }
-        
+
       }else if(bankPassword=="0"){
         goto signinmenu;
-      }else{
+      }
+      else{
         goto acc1si;
       }
-      
-      break;
 
+      break;
+    case 2 :
+    cout<<"the password is 'Apollo'.thats it. 'apollo'.";
+    cout<<"\n\n\n\t\t\t\t[Any Key] Go Back";
+  default:
+    goto bankmenu;
       break;
 
     }
-  
+
       }   
-  
-  
-  
-}
