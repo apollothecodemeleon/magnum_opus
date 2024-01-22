@@ -171,7 +171,8 @@ int main() {
 
       }else if(bankPassword=="0"){
         goto signinmenu;
-      }else{
+      }
+      else{
         goto acc1si;
       }
 
