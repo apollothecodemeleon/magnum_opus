@@ -1,3 +1,5 @@
+float calcAddition(float add_num1, float add_num2)
+float calcSubtraction()
 
 //line 2 -5 is to avoid errors
 #include<iostream>
@@ -9,24 +11,9 @@ using namespace std;
 
 
 
-void calfunct() {
-   // declaring all variables
-    int cal_opertr;
-    int cal_num1;
-    int cal_num2;
-    int cal_s_d_p_q_a;
-  
-    string stall;
-    calstart:
-    cout << "\n\t\t\t\t\tChoose an operator";
-    cout << "\n1) Addition";
-    cout << "\n2) Subtraction";
-    cout << "\n3) Division";
-    cout << "\n4) Multiplication";
-    cout << "\n5) Averages";
-    cout << "\n6) Back";
-    cout << "\n\tEnter your choice: ";
-    cin >> cal_opertr;
+
+float userinput1, float userinput2;
+    
 
   
   
@@ -120,16 +107,40 @@ void calfunct() {
 
     
     }
-  
-    
-}
-
-
-    
 
 
 
 int main() {
-    calfunct(); 
+
+   
+
+
+    cout << "\n\t\t\t\t\tChoose an operator";
+    cout << "\n1) Addition";
+    cout << "\n2) Subtraction";
+    cout << "\n3) Division";
+    cout << "\n4) Multiplication";
+    cout << "\n5) Averages";
+    cout << "\n6) Back";
+    cout << "\n\tEnter your choice: ";
+    cin >> cal_opertr;
+
+    case 1:
+    cout << "input the first number";
+    cin >> userinput1;
+    cout << "input the second number";
+    cin >> userinput2;
+
+
+    calcAddition(userinput1,userinput2);
+
+    case 2:
+
+
     return 0;
+
+}
+
+float calcAddition(float add_num1, float add_num2){
+    return add_num1+add_num2;//eeezzzzz just 1 line function :)
 }
