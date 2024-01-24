@@ -1,9 +1,3 @@
-float calcAddition(float add_num1, float add_num2)
-float calcSubtraction(float sub_num1, float sub_num2)
-float calcMultiplication(float mult_num1, float mult_num2)
-float calcDivision(float divise_num1, float divise_num2)
-void calcAvrage()
-
 //line 2 -5 is to avoid errors
 #include<iostream>
 #include<chrono>
@@ -13,14 +7,16 @@ void calcAvrage()
 using namespace std;
 
 
-float userinput1, float userinput2;
 
-
-int main() {
-
-   
+void calfunct() {
+   // declaring all variables
+    int cal_opertr;
+    int cal_num1;
+    int cal_num2;
+    int cal_s_d_p_q_a;
+  
+    string stall;
     calstart:
-
     cout << "\n\t\t\t\t\tChoose an operator";
     cout << "\n1) Addition";
     cout << "\n2) Subtraction";
@@ -31,43 +27,68 @@ int main() {
     cout << "\n\tEnter your choice: ";
     cin >> cal_opertr;
 
-    case 1:
-    cout << "input the first number";
-    cin >> userinput1;
-    cout << "input the second number";
-    cin >> userinput2;
+  
+  
+    switch (cal_opertr) {
+        case 1:
+            cout << "\033[2J\033[0;0H";
+            cout << "\nInput the first number: ";
+            cin >> cal_num1;
+            cout << "\033[2J\033[0;0H";
+            cout << "Input the second number: ";
+            cin >> cal_num2;
+            cout << "\033[2J\033[0;0H";
+            cal_s_d_p_q_a = cal_num1 + cal_num2;
+            cout << "\033[2J\033[0;0H";
+            cout <<"\n——————————————————————————";
+            cout << "\nThe sum was: " << cal_s_d_p_q_a;
+            cout <<"\n——————————————————————————";
+            goto calstart;
 
-
-    calcAddition(userinput1,userinput2);
-
-    case 2:
-
-
-    return 0;
-
-}
-
-/*Functions/Actual
-Math Section*/
-
-float calcAddition(float add_num1, float add_num2){
-    return add_num1+add_num2;//eeezzzzz just 1 line function :)
-}
-
-float calcSubtraction(float sub_num1, float sub_num2){
-    return sub_num1-sub_num2;//also eeeezzzzzzzz
-}
-
-float calcDivision(float divise_num1, float divise_num2){
-    return divise_num1 / divise_num2;//eeeeeezzzzzzz
-}
-
-float calcMultiplication(float mult_num1, float mult_num2){
-    return float mult_num1 * mult_num2;
-}
-
-void calcAvrage(){
-     //i honestly dont know how this works but ill try to break it down beacuse i used a little somthing that all programers do called "steal from stack overflow(aka coding reddit for those that dont know)"  
+      case 2:
+      cout << "\033[2J\033[0;0H";
+            cout << "\nInput the first number: ";
+            cin >> cal_num1;
+            cout << "\033[2J\033[0;0H";
+            cout << "Input the second number: ";
+            cin >> cal_num2;
+            cout << "\033[2J\033[0;0H";
+            cal_s_d_p_q_a = cal_num1 - cal_num2;
+            cout << "\033[2J\033[0;0H";
+            cout <<"\n——————————————————————————";
+            cout << "\nThe difference was: " << cal_s_d_p_q_a;
+            cout <<"\n——————————————————————————";
+            goto calstart;
+       case 3:
+       cout << "\033[2J\033[0;0H";
+            cout << "\nInput the first number: ";
+            cin >> cal_num1;
+            cout << "\033[2J\033[0;0H";
+            cout << "Input the second number: ";
+            cin >> cal_num2;
+            cout << "\033[2J\033[0;0H";
+            cal_s_d_p_q_a = cal_num1 / cal_num2;
+            cout << "\033[2J\033[0;0H";
+            cout <<"\n——————————————————————————";
+            cout << "\nThe quotient was: " << cal_s_d_p_q_a;
+            cout <<"\n——————————————————————————";
+            goto calstart;
+       case 4:
+       cout << "\033[2J\033[0;0H";
+            cout << "\nInput the first number: ";
+            cin >> cal_num1;
+            cout << "\033[2J\033[0;0H";
+            cout << "Input the second number: ";
+            cin >> cal_num2;
+            cout << "\033[2J\033[0;0H";
+            cal_s_d_p_q_a = cal_num1 * cal_num2;
+            cout << "\033[2J\033[0;0H";
+            cout <<"\n——————————————————————————";
+            cout << "\nThe product was: " << cal_s_d_p_q_a;
+            cout <<"\n——————————————————————————";
+            goto calstart;
+      case 5: 
+    //i honestly dont know how this works but ill try to break it down beacuse i used a little somthing that all programers do called "steal from stack overflow(aka coding reddit for those that dont know)"  
          cout << "\033[2J\033[0;0H";//same command that clears terminal
       int mean_amnt, i; //calling the variables btw i hate how the stackoverflow pepole just call it "clean code" by making their variables one letter to confuse pepole reading it
     float num[100], sum=0.0, average;
@@ -95,4 +116,19 @@ void calcAvrage(){
     cout << "\nThe average = " << average;
     cout <<"\n——————————————————————————";
     goto calstart;
+
+    
+    }
+  
+    
+}
+
+
+    
+
+
+
+int main() {
+    calfunct(); 
+    return 0;
 }
