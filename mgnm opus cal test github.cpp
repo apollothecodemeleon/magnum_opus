@@ -13,18 +13,7 @@ void calcAvrage()
 using namespace std;
 
 
-
-
 float userinput1, float userinput2;
-    
-
-  
-  
-      
-   
-
-    
-
 
 
 int main() {
