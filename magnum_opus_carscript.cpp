@@ -10,6 +10,13 @@ class shortcutClass {
 	  
 }
 
+class carPrices(){
+	public:
+
+	int Prius_Prime2024=30;
+
+}
+
 int main() {
 	shortcutClass shorcuts;
 	int carMenuOption;
@@ -42,6 +49,11 @@ int main() {
 			/*Sedan rental
 			section*/
 			case 1:
+			shorcuts.clearFunct;
+			cout << "\nchoose your sedan."
+			cout << "\n\n\t1)Toyota Prius Prime; 2024"
+			cout << "\n\n\t2)Hyudai Elantra";
+			cout << "\n\n\t3)"
 
 			/*suv rental
 			section*/
