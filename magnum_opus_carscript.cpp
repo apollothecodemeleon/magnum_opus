@@ -10,17 +10,40 @@ class shortcutClass {
 	  
 }
 
+
+class rentingFeatures(){
+	public:
+
+	float rentCar(float wallet, int rentalPrice){
+		return wallet-rentalPrice;
+	}
+}
+
+
 class carPrices(){
 	public:
 
-	int Prius_Prime2024=30;
+	
+	//sedans
+	int ToyotaPrius_Prime2024=30;
+	int HyundaiSonata2023=29;
+	int HyundaiElantra2023=30;
+	int NissanSentra2024=22;
+	int NissanMaxima2024=32;
+	int HondaCivic2023=25;
+	//crossover/suv
+	//minivan
+	//sports car
 
+
+	
 }
 
 int main() {
 	shortcutClass shorcuts;
 	int carMenuOption;
 	int carTypeOption;
+	int carselected;
 	shorcuts.clearFunct;
 	cout << "Welcome to Offrent, the car rental service of your dreams!";
 	cout << "\nPress Any Key to Continue!";
@@ -45,15 +68,38 @@ int main() {
 
 		cin>>carTypeOption;
 		switch(carTypeOption){
-
+		
 			/*Sedan rental
 			section*/
 			case 1:
 			shorcuts.clearFunct;
 			cout << "\nchoose your sedan."
 			cout << "\n\n\t1)Toyota Prius Prime; 2024"
-			cout << "\n\n\t2)Hyudai Elantra";
-			cout << "\n\n\t3)"
+			cout << "\n\n\t2)Hyundai Sonata; 2024";
+			cout << "\n\n\t3)Hyundai Elantra; 2023";
+			cout << "\n\n\t4)Nissan Sentra; 2024";
+			cout << "\n\n\t5)Nissan Maxima; 2024";
+			cout << "\n\n\t6)Honda Civic; 2023";
+			cin>>carselected;
+			switch(carselected){
+				case 1:
+				/*insert
+				priusprime info*/
+
+				case 2:
+				/*insert
+				sonata info*/
+
+				case 3:
+				/*insert
+				elantra info */
+
+				case 4:
+				/*you get
+				 the idea*/
+			}
+
+
 
 			/*suv rental
 			section*/
