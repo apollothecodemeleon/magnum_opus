@@ -83,8 +83,12 @@ int main() {
 			cin>>carselected;
 			switch(carselected){
 				case 1:
-				/*insert
-				priusprime info*/
+				cout<<"\t\t\t\t\n\nPrius Prime";
+				cout<<"\n\nYear:\t\t2024";
+				cout<<"\n\nPower:\t\tHybrid";
+				cout<<"\n\nDrivetrain\t\tFWD, Auto Transmission";
+				cout<<"\n\nCapacity:\t\t1+ 4 Passengers";
+				cout<<"\n\nEngine:\t\tHybrid Pow";
 
 				case 2:
 				/*insert
