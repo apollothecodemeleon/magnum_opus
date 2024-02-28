@@ -1,189 +1,131 @@
 #include <iostream>
-#include <chrono>
-#include <thread>
 #include <stdlib.h>
 using namespace std;
-
-
-string bankPassword;//calling the variable for the password that you enter
-int bankMenu;//calling the variable to choose the thing on the menu
-int accountChoice;//calling the variable to choose the account
-int account_ops;//calling the variable for the choice
-float acc1balance=100000;
-float acc1wallet=1000;
-int acc1money = acc1balance + acc1wallet;
-
-
-
-
-
 int main() {
-
-  float depositOrWithdrawAmount;
-  float walletchange;
-  float balancechange;
-
-
-  string wlcmssg = R"(
-   __      __          ___                                        
-  /\ \  __/\ \        /\_ \                                       
-  \ \ \/\ \ \ \     __\//\ \     ___    ___     ___ ___      __   
-   \ \ \ \ \ \ \  /'__`\\ \ \   /'___\ / __`\ /' __` __`\  /'__`\ 
-    \ \ \_/ \_\ \/\  __/ \_\ \_/\ \__//\ \L\ \/\ \/\ \/\ \/\  __/ 
-     \ `\___x___/\ \____\/\____\ \____\ \____/\ \_\ \_\ \_\ \____\
-      '\/__//__/  \/____/\/____/\/____/\/___/  \/_/\/_/\/_/\/____/__                                           __                  ____                                     __         
-                      /\ \__             /'\_/`\                  /\ \__              /\  _`\                  /\ \           ──▄▄█▀▀▀▀▀█▄▄──   
-                      \ \ ,_\   ___     /\      \     __      ____\ \ ,_\    __   _ __\ \ \L\ \     __      ___\ \ \/'\       ▄█▀──▄─▄────▀█▄ 
-  `                    \ \ \/  / __`\   \ \ \__\ \  /'__`\   /',__\\ \ \/  /'__`\/\`'__\ \  _ <'  /'__`\  /' _ `\ \ , <       █───▀█▀▀▀▀▄───█ 
-                        \ \ \_/\ \L\ \   \ \ \_/\ \/\ \L\.\_/\__, `\\ \ \_/\  __/\ \ \/ \ \ \L\ \/\ \L\.\_/\ \/\ \ \ \\`\     █────█▄▄▄▄▀───█ 
-                         \ \__\ \____/    \ \_\\ \_\ \__/.\_\/\____/ \ \__\ \____\\ \_\  \ \____/\ \__/.\_\ \_\ \_\ \_\ \_\   █────█────█───█
-                ─         \/__/\/___/      \/_/ \/_/\/__/\/_/\/___/   \/__/\/____/ \/_/   \/___/  \/__/\/_/\/_/\/_/\/_/\/_/   ▀█▄─▀▀█▀█▀──▄█▀
-                                                                                                                              ──▀▀█▄▄▄▄▄█▀▀──
-)";                     
-  cout << "\033[2J\033[0;0H";
-
-  cout << "Press Any Key To Continue!";
-  getchar;
-  
-  bankmenu:
-  cout << "\033[2J\033[0;0H";
-
-
-  this_thread::sleep_for(chrono::seconds(2));
-
-  cout<<wlcmssg;
-  cout << "\n\t\t please choose an option";
-  cout << "\n1) log in";
-  cout << "\n2) account help";
-  cout << "\nback";
-  cout << "\n\n\n\t\t\t\t[0] Go Back";
-  cout << "\t\t[1-2] Select Choice";
-  cout << "\t\t[tip] You should go to account help first to know the password.\n";
-  cin>>bankMenu;
-
-  switch (bankMenu){ 
-  case 1:
-    signinmenu:
+    int quant;
+    int choice;
+    int Qrooms = 20, Qpasta = 20, Qburger = 40, Qnoodles = 18, Qshake = 81, Qchicken = 120;
+    int Srooms = 0, Spasta = 0, Sburger = 0, Snoodles = 0, Sshake = 0, Schicken = 0;
+    int Total_rooms = 0, Total_pasta = 0, Total_burger = 0, Total_noodles = 0, Total_shake = 0, Total_chicken = 0;
+    int wallet = 10000;
+    htlmnu:
     cout << "\033[2J\033[0;0H";
-
-    cout<<"\n\t\t(note: the money you have is universal across al my projects:)"; 
-    //alright, so this is gonna get complicated. there is a switch function IN this switch function💀😳🤯🪆its called nesting btw
-
-
-
-     cout<<"\n\n\n\t\t\t\t[0] Go Back";
-     acc1si:
-     cout << "\033[2J\033[0;0H";
-
-     cout << "enter password(enter 0 to go back)\n";
-     cin>>bankPassword;
-
-      if (bankPassword=="apollo"){
-        acc1mnu:
+    cout << "\n\t\t\t Please select from the following menu options)";
+    cout << "\n\n1)Rooms";
+    cout << "\n2)Pasta";
+    cout << "\n3)Burgers";
+    cout << "\n4)Noodles";
+    cout << "\n5)Shakes";
+    cout << "\n6)Chicken nuggies";
+    cout << "\n7)Info regarding sales";
+    cout << "\n8)Exit";
+    cout << "\n\n Please enter your choice: ";
+    cin >> choice;
+    switch (choice) {
+    case 1:
         cout << "\033[2J\033[0;0H";
-
-
-        cout<<"\n\t\tWelcome, account1!\n what would you like to do?";
-        cout<<"\n\n1)deposit";
-        cout<<"\n2)withdraw";
-        cout<<"\n3)calculator";
-        cout<<"\n4)dashboard";
-        cout<<"\n\n\n\t\t\t\t[0] Log Out";
-        cout<<"\t\t[1-4]Select Choice";
-
-        cin>>account_ops; 
-
-
-        switch (account_ops) {
-
-        case 0:
-            /*Log Out
-            Section*/
-            goto acc1mnu;
-            break;
-            /*deposit
-            section*/
-            //in case you wonder why this has so many incorrectly named markers and stuff, that is because the code originally had multiple accounts
-        case 1:
-            cout << "\033[2J\033[0;0H";
-
-            cout << "\nhow much mone would you like to deposit";
-            cout << "\ninfo:";
-            cout << "\nBalance= $" << acc1balance;
-            cout << "\nMoney in wallet= $" << acc1wallet;
-
-
-            cin >> depositOrWithdrawAmount;
-            walletchange = acc1wallet - depositOrWithdrawAmount;
-            acc1wallet = walletchange;
-            balancechange = acc1balance + depositOrWithdrawAmount;
-            acc1balance = balancechange;
-
-
-            goto acc1mnu;
-
-            break;
-            /*Withdrawal
-            Section*/
-        case 2:
-
-            cout << "\033[2J\033[0;0H";
-
-            cout << "\nhow much money would you like to withdraw";
-            cout << "\ninfo:";
-            cout << "\nBalance= $" << acc1balance;
-            cout << "\nMoney in wallet= $" << acc1wallet;
-
-            cin >> depositOrWithdrawAmount;
-            balancechange = acc1balance - depositOrWithdrawAmount;
-            acc1balance = balancechange;
-
-            goto acc1mnu;
-
-            break;
-            /*Calculator
-            Section*/
-        case 3:
-
-            /*To Do With Final Assembly: Add
-            Calculator!!!!*/
-
-            break;//will add goto and cin for back at the end of the calculator part
-            /*Dashboard
-            Section*/
-        case 4:
-
-            cout << "\nYour Dashboard!";
-            cout << "\nWarning: this page will close in 15 seconds";
-
-            cout << "\nur balance:$" << acc1balance;
-            cout << "\nur latest accounting transaction:$" << depositOrWithdrawAmount;
-            cout << "\nur wallet:$" << acc1wallet;
-            cout << "\nur total money" << acc1money;
-            cout << "\nur chance of having a pet:75%";
-
-            this_thread::sleep_for(chrono::seconds(15));
-
-
-        
-            goto acc1mnu;
+        cout << "\n\n Enter the number of rooms you want: ";
+        cin >> quant;
+        if (Qrooms - Srooms >= quant) {
+            Srooms = Srooms + quant;
+            Total_rooms = Total_rooms + quant * 1200;
+            wallet = wallet - 1200;
+            cout << "\n\n\t\t" << quant << " room(s) have been allotted to you";
+            goto htlmnu;
         }
-
-      }else if(bankPassword=="0"){
-        goto signinmenu;
-      }
-      else{
-        goto acc1si;
-      }
-
-      break;
-    case 2 :
-    cout<<"the password is 'Apollo'.thats it. 'apollo'.";
-    cout<<"\n\n\n\t\t\t\t[Any Key] Go Back";
-  default:
-    goto bankmenu;
-      break;
-
+        else {
+            cout << "\n\tOnly " << Qrooms - Srooms << " Rooms remain";
+            goto htlmnu;
+        }
+        break;
+    case 2:
+        cout << "\n\n Enter the amount of pasta you want: ";
+        cin >> quant;
+        if (Qpasta - Spasta >= quant) {
+            Spasta = Spasta + quant;
+            Total_pasta = Total_pasta + quant * 250;
+            wallet = wallet - 250;
+            cout << "\n\n\t\tyou've ordered " << quant << " pasta(s)";
+            goto htlmnu;
+        }
+        else {
+            cout << "\n\tOnly " << Qpasta - Spasta << " pastas remaining";
+            goto htlmnu;
+        }
+        break;
+    case 3:
+        cout << "\n\n Enter the amount of burgers you want: ";
+        cin >> quant;
+        if (Qburger - Sburger >= quant) {
+            Sburger = Sburger + quant;
+            Total_burger = Total_burger + quant * 120;
+            wallet = wallet - 120;
+            cout << "\n\n\t\tyou've ordered " << quant << " burger(s)";
+            goto htlmnu;
+        }
+        else {
+            cout << "\n\tOnly " << Qburger - Sburger << " burgers remaining";
+            goto htlmnu;
+        }
+        break;
+    case 4:
+        cout << "\n\n Enter the amount of noodles you want: ";
+        cin >> quant;
+        if (Qnoodles - Snoodles >= quant) {    
+            Snoodles = Snoodles + quant;
+            Total_noodles = Total_noodles + quant * 140;
+            wallet = wallet - 140;
+            cout << "\n\n\t\tyou've ordered " << quant << " noodles(s)";
+            goto htlmnu;
+        }
+        else {
+            cout << "\n\tOnly " << Qnoodles - Snoodles << " noodles remaining";
+            goto htlmnu;
+        }
+        break;
+    case 5:
+        cout << "\n\n Enter the amount of shakes you want: ";
+        cin >> quant;
+        if (Qshake - Sshake >= quant) {
+            Sshake = Sshake + quant;
+            Total_shake = Total_shake + quant * 120;
+            wallet = wallet - 120;
+            cout << "\n\n\t\tyou've ordered " << quant << " shake(s)";
+            goto htlmnu;
+        }
+        else {
+            cout << "\n\tOnly " << Qshake - Sshake << " shakes remaining";
+            goto htlmnu;
+        }
+        break;
+    case 6:
+        cout << "\n\n Enter the amount of 10pcs chicken nuggets you want: ";
+        cin >> quant;
+        if (Qchicken - Schicken >= quant) {
+            Schicken = Schicken + quant;
+            Total_chicken = Total_chicken + quant * 150;
+            wallet = wallet - 150;
+            cout << "\n\n\t\tyou've ordered " << quant << " 10pcs chicken nuggets(s)";
+            goto htlmnu;
+        }
+        else {
+            cout << "\n\tOnly " << Qchicken - Schicken << " 10pcs chicken nuggets remaining";
+            goto htlmnu;
+        }
+        break;
+    case 7:
+        cout << "\033[2J\033[0;0H";
+        cout << "\n\t\tDetails of sales and collection";
+         cout<<"\n\t\tDetails of sales and collection"; cout<<"\n\nNumber of rooms we had: "<<Qrooms; cout<<"\n\nNumber of rooms we have sold for rent: "<<Srooms; cout<<"\n\nRemaning rooms: "<<Qrooms-Srooms; cout<<"\n\nTotal rooms collections for the day:$"<<Total_rooms; cout<<"\n\nAmount of pasta we had: "<<Qpasta; cout<<"\n\nAmount of pasta we have sold: "<<Spasta; cout<<"\n\nAmount of Remaning pasta: "<<Qpasta-Spasta; cout<<"\n\nTotal amount of pasta collection for the day:$"<<Total_pasta; cout<<"\n\nNumber of burgers we had: "<<Qburger; cout<<"\n\n Number of burgers we have sold: "<<Sburger; cout<<"\n\nRemaning burgers: "<<Qburger-Sburger; cout<<"\n\nTotal burger collections for the day:$"<<Total_burger; cout<<"\n\n\n\t\t\tNoodles info"; cout<<"\n\nNumber of noodles we had: "<<Qnoodles; cout<<"\n\n Number of noodles we have sold: "<<Snoodles; cout<<"\n\nRemaning noodles: "<<Qnoodles-Snoodles; cout<<"\n\nTotal noodle collections for the day:$"<<Total_noodles; cout<<"\n\n\n\t\t\tShakes info"; cout<<"\n\n\nNumber of shakes we had: "<<Qshake; cout<<"\n\n Number of shakes we have sold: "<<Sburger; cout<<"\n\nRemaning shakes: "<<Qshake-Sshake; cout<<"\n\nTotal shake collections for the day:$"<<Total_shake; cout<<"\n\n\n\t\t\t10pcs chicken nugget info"; cout<<"\n\n\nNumber of 10pcs chicken nuggets we had: "<<Qchicken; cout<<"\n\n Number of 10pcs chicken nuggets we have sold: "<<Schicken; cout<<"\n\nRemaning 10pcs chicken nuggets: "<<Qchicken-Schicken; cout<<"\n\nTotal 10pcs chicken nugget collections for the day:$"<<Total_chicken; cout<<"\n\n\n\t\t\tTotal things info"; cout<<"\n\n\nNumber of things we had in total"<<Qburger+Qchicken+Qnoodles+Qpasta+Qrooms+Qshake; cout<<"\n\nNumber of things weve sold it total"<<Sburger+Schicken+Snoodles+Spasta+Srooms+Sshake; cout<<"\n\nTotal remaning things"<<Qburger+Qchicken+Qnoodles+Qpasta+Qrooms+Qshake-Sburger+Schicken+Snoodles+Spasta+Srooms+Sshake; cout<<"\n\nTotal collections for the day:$"<<Total_pasta+Total_rooms+Total_shake+Total_burger+Total_chicken+Total_noodles;
+        goto htlmnu;
+    case 8:
+        cout << "Thanks for staying at C++ hotel";
+        exit(0);
+    default:
+        cout << "\033[2J\033[0;0H";
+        cout << "Not a proper number";
+        break;
     }
-
-      }   
+    goto htlmnu;
+    return 0;
+}
