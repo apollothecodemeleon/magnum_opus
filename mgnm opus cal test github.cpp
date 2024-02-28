@@ -1,4 +1,3 @@
-//line 2 -5 is to avoid errors
 #include<iostream>
 #include<chrono>
 #include<thread>
@@ -14,7 +13,7 @@ void calfunct() {
     int cal_num1;
     int cal_num2;
     int cal_s_d_p_q_a;
-  
+
     string stall;
     calstart:
     cout << "\n\t\t\t\t\tChoose an operator";
@@ -27,8 +26,8 @@ void calfunct() {
     cout << "\n\tEnter your choice: ";
     cin >> cal_opertr;
 
-  
-  
+
+
     switch (cal_opertr) {
         case 1:
             cout << "\033[2J\033[0;0H";
@@ -50,7 +49,7 @@ void calfunct() {
             cout << "\nInput the first number: ";
             cin >> cal_num1;
             cout << "\033[2J\033[0;0H";
-            cout << "Input the second number: ";
+            cout << "Input the second  number: "; 
             cin >> cal_num2;
             cout << "\033[2J\033[0;0H";
             cal_s_d_p_q_a = cal_num1 - cal_num2;
@@ -117,14 +116,14 @@ void calfunct() {
     cout <<"\n——————————————————————————";
     goto calstart;
 
-    
+
     }
-  
-    
+
+
 }
 
 
-    
+
 
 
 
